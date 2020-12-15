@@ -1,0 +1,59 @@
+responseTimeout: 10800
+↓Read_XML [steps.ReadXMLStep-1607941608254]: 
+  dataFile: '".//storedDocs.xml"'
+  isEnabled: false
+↓Iterator [steps.IteratorStep-1607941628200]: 
+  isEnabled: false
+  sourceDefinition: 
+    - xmlizable: 
+      - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+      - com.twinsoft.convertigo.beans.common.XMLVector: 
+        - java.lang.String: 
+          - ↑value: 1607941608254
+        - java.lang.String: 
+          - ↑value: ./document/id
+  ↓Call_Sequence [steps.SequenceStep-1607941886938]: 
+    sourceSequence: test_group_fs.attachJPG2Doc
+    ↓docid [variables.StepVariable-1607941886940]: 
+      description: Document ID
+      sourceDefinition: 
+        - xmlizable: 
+          - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+          - com.twinsoft.convertigo.beans.common.XMLVector: 
+            - java.lang.String: 
+              - ↑value: 1607941628200
+            - java.lang.String: 
+              - ↑value: ./text()
+    ↓attnb [variables.StepVariable-1607941886942]: 
+      description: Attachment name
+↓Call_Transaction [steps.TransactionStep-1607950402126]: 
+  sourceTransaction: test_group_fs.test_group_fs.GetNoDocAttachmentsView
+  ↓_use_reduce [variables.StepVariable-1607950681966]: 
+    description: (boolean) – Use the reduction function. Default is true
+    value: false
+↓Iterator1 [steps.IteratorStep-1607950410570]: 
+  sourceDefinition: 
+    - xmlizable: 
+      - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+      - com.twinsoft.convertigo.beans.common.XMLVector: 
+        - java.lang.String: 
+          - ↑value: 1607950402126
+        - java.lang.String: 
+          - ↑value: ./document/couchdb_output/rows/item
+  ↓Call_Sequence [steps.SequenceStep-1607950445097]: 
+    sourceSequence: test_group_fs.attachJPG2Doc
+    ↓docid [variables.StepVariable-1607950445100]: 
+      description: Document ID
+      sourceDefinition: 
+        - xmlizable: 
+          - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+          - com.twinsoft.convertigo.beans.common.XMLVector: 
+            - java.lang.String: 
+              - ↑value: 1607950410570
+            - java.lang.String: 
+              - ↑value: ./id/text()
+    ↓attnb [variables.StepVariable-1607950445103]: 
+      description: Attachment name
+↓attnb [variables.RequestableVariable-1607941899364]: 
+  description: Attachment name
+  value: 1

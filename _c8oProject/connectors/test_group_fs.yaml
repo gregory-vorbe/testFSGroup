@@ -1,0 +1,69 @@
+databaseName: test_group_fs
+↓GetNoDocAttachmentsView [transactions.couchdb.GetViewTransaction]: 
+  p_ddoc: Design_document
+  p_view: NoDocByAttachments
+  ↓_use_reduce [variables.RequestableVariable-1607950665272]: 
+    description: (boolean) – Use the reduction function. Default is true
+    value: true
+↓GetServerInfo [transactions.couchdb.GetServerInfoTransaction]: 
+  ↑default: true
+↓PostBulkDocuments [transactions.couchdb.PostBulkDocumentsTransaction]: 
+  ↓data [variables.RequestableMultiValuedVariable-1607330324807]: 
+    description: Documents contents
+  ↓_use_json_base [variables.RequestableVariable-1607593632204]: 
+    description: (string) – JSON use as a base for the array of documents (js array), or for individual documents (js object). Optional
+↓PutDocumentAttachment [transactions.couchdb.PutDocumentAttachmentTransaction]: 
+  ↓_use_docid [variables.RequestableVariable-1607597566955]: 
+    description: Document ID
+  ↓_use_attpath [variables.RequestableVariable-1607597566957]: 
+    description: Attachment path  This path is either absolute or relative to Convertigo environment. Relative paths starting with:<br/><br/>• <span class="computer">./</span> are relative to Convertigo workspace,<br/>• <span class="computer">.//</span> are relative to current project folder. <br/><br/>
+  ↓_use_attname [variables.RequestableVariable-1607597566959]: 
+    description: Attachment name
+↓Design_document [couchdb.DesignDocument]: 
+  docdata: 
+    →: |
+      '{
+        "_id": "_design\/Design_document",
+        "filters": {},
+        "updates": {},
+        "views": {
+          "DocByGrp": {
+            "map": "function (doc) {\r\n
+          try {\r\n
+              for (i in doc.c8oGrp) {\r\n
+                  if (doc.c8oGrp[i]) {\r\n
+                      emit(i, doc._id)\r\n
+                  }\r\n
+              }\r\n
+          } catch (err) {\r\n
+              log(err.message);\r\n
+          }\r\n
+      }",
+            "reduce": "_count"
+          },
+          "DocByAttachments": {
+            "map": "function (doc) {\r\n
+          try {\r\n
+              if (doc._attachments) {\r\n
+                  emit(doc._id, 1)\r\n
+              }\r\n
+          } catch (err) {\r\n
+              log(err.message);\r\n
+          }\r\n
+      }",
+            "reduce": "_count"
+          },
+          "NoDocByAttachments": {
+            "map": "function (doc) {\r\n
+          try {\r\n
+              if (!doc._attachments) {\r\n
+                  emit(doc._id, 1)\r\n
+              }\r\n
+          } catch (err) {\r\n
+              log(err.message);\r\n
+          }\r\n
+      }",
+            "reduce": "_count"
+          }
+        }
+      }'

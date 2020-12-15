@@ -1,0 +1,51 @@
+↓List_directory [steps.ListDirStep-1607382033717]: 
+  sourceDirectory: directory
+↓Iterator [steps.IteratorStep-1607382050528]: 
+  sourceDefinition: 
+    - xmlizable: 
+      - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+      - com.twinsoft.convertigo.beans.common.XMLVector: 
+        - java.lang.String: 
+          - ↑value: 1607382033717
+        - java.lang.String: 
+          - ↑value: ./file
+  ↓IfIsIn [steps.IsInStep-1607382050532]: 
+    sourceDefinition: 
+      - xmlizable: 
+        - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+        - com.twinsoft.convertigo.beans.common.XMLVector: 
+          - java.lang.String: 
+            - ↑value: 1607382050528
+          - java.lang.String: 
+            - ↑value: ./text()
+    testDefinition: 
+      - xmlizable: 
+        - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+        - com.twinsoft.convertigo.beans.common.XMLVector: 
+          - xmlizable: 
+            - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+            - com.twinsoft.convertigo.beans.common.XMLVector: 
+              - java.lang.String: 
+                - ↑value: AND
+              - java.lang.String: 
+                - ↑value: .*\.xml
+    ↓jSimpleSource [steps.SimpleSourceStep-1607382099185]: 
+      sourceDefinition: 
+        - xmlizable: 
+          - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+          - com.twinsoft.convertigo.beans.common.XMLVector: 
+            - java.lang.String: 
+              - ↑value: 1607382050528
+            - java.lang.String: 
+              - ↑value: ./text()
+      variableName: jFileName
+    ↓Sequence_JS [steps.SimpleStep-1607382050535]: 
+      expression: |
+        'var newFileName = "file." + jFileName.split(''.'')[1].substr(-4) + ".xml";
+        log.warning("new file: " + newFileName);
+        '
+    ↓Rename_file [steps.RenameStep-1607382381330]: 
+      newName: newFileName
+      sourcePath: directory+'/'+jFileName
+↓directory [variables.RequestableVariable-1607383560049]: 
+  value: F:\\TMP\\off

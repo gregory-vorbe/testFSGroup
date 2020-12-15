@@ -1,0 +1,30 @@
+↑convertigo: 7.8.1.m006
+↓test_group_fs [core.Project]: 
+  comment: Convertigo Mobile builder Project
+  contextTimeout: 36000
+  corsOrigin: =Origin
+  httpSessionTimeout: 72000
+  ↓test_group_fs [connectors.FullSyncConnector]: 🗏 connectors/test_group_fs.yaml
+  ↓void [connectors.SqlConnector]: 🗏 connectors/void.yaml
+  ↓addAttachments [sequences.GenericSequence]: 🗏 sequences/addAttachments.yaml
+  ↓attachJPG2Doc [sequences.GenericSequence]: 🗏 sequences/attachJPG2Doc.yaml
+  ↓listGroups [sequences.GenericSequence]: 🗏 sequences/listGroups.yaml
+  ↓login [sequences.GenericSequence]: 🗏 sequences/login.yaml
+  ↓logout [sequences.GenericSequence]: 🗏 sequences/logout.yaml
+  ↓main [sequences.GenericSequence]: 🗏 sequences/main.yaml
+  ↓removeUserFromAllGroups [sequences.GenericSequence]: 🗏 sequences/removeUserFromAllGroups.yaml
+  ↓renameFiles [sequences.GenericSequence]: 🗏 sequences/renameFiles.yaml
+  ↓storeDocs [sequences.GenericSequence]: 🗏 sequences/storeDocs.yaml
+  ↓UserBulkGroups [sequences.GenericSequence]: 🗏 sequences/UserBulkGroups.yaml
+  ↓MobileApplication [core.MobileApplication]: 
+    comment: Describes the mobile application global properties
+    splashRemoveMode: beforeUpdate
+    ↓Android [mobileplatforms.Android]: 
+      comment: Android platform
+    ↓iOS [mobileplatforms.IOs]: 
+      comment: iOS platform
+    ↓Application [mobile.components.ApplicationComponent]: 🗏 mobileApplication.yaml
+  ↓CouchDb_schema [references.ImportXsdSchemaReference]: 
+    urlpath: http://localhost:18080/convertigo/xsd/couchdb/CouchDb.xsd
+  ↓lib_FullSyncGrp_reference [references.ProjectSchemaReference]: 
+    projectName: lib_FullSyncGrp=git@github.com:convertigo/c8oprj-lib-fullsync-grp.git:branch=7.7.0

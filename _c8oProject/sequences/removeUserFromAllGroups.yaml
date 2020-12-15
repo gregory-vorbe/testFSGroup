@@ -1,0 +1,38 @@
+↓Call_Sequence [steps.SequenceStep-1607341207101]: 
+  sourceSequence: lib_FullSyncGrp.GroupsOf
+  ↓user [variables.StepVariable-1607341207103]: 
+↓Iterator [steps.IteratorStep-1607341256461]: 
+  sourceDefinition: 
+    - xmlizable: 
+      - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+      - com.twinsoft.convertigo.beans.common.XMLVector: 
+        - java.lang.String: 
+          - ↑value: 1607341207101
+        - java.lang.String: 
+          - ↑value: ./document/group
+  ↓Call_Sequence [steps.SequenceStep-1607341276753]: 
+    output: true
+    sourceSequence: lib_FullSyncGrp.RemoveUserFromGroup
+    ↓user [variables.StepVariable-1607341276755]: 
+    ↓group [variables.StepVariable-1607341276757]: 
+      sourceDefinition: 
+        - xmlizable: 
+          - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+          - com.twinsoft.convertigo.beans.common.XMLVector: 
+            - java.lang.String: 
+              - ↑value: 1607341256461
+            - java.lang.String: 
+              - ↑value: ./text()
+  ↓Copy [steps.XMLCopyStep-1607341433899]: 
+    sourceDefinition: 
+      - xmlizable: 
+        - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+        - com.twinsoft.convertigo.beans.common.XMLVector: 
+          - java.lang.String: 
+            - ↑value: 1607341276753
+          - java.lang.String: 
+            - ↑value: ./document/success[1]
+↓user [variables.RequestableVariable-1607341214209]: 
+↓Test_Case [core.TestCase]: 
+  ↓user [variables.TestCaseVariable-1607341227606]: 
+    value: User1

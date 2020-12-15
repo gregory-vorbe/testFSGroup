@@ -1,0 +1,104 @@
+responseTimeout: 3600
+↓Input_variables [steps.InputVariablesStep-1607347835431]: 
+↓Read_CSV [steps.ReadCSVStep-1607092944246]: 
+  dataFile: '''F:\\TMP\\off\\'' + filename'
+  encoding: UTF-8
+  isEnabled: false
+  output: true
+  separator: £
+↓Count [steps.XMLCountStep-1607103794288]: 
+  isEnabled: false
+  sourceDefinition: 
+    - xmlizable: 
+      - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+      - com.twinsoft.convertigo.beans.common.XMLVector: 
+        - java.lang.String: 
+          - ↑value: 1607103614985
+        - java.lang.String: 
+          - ↑value: ./dataset/record
+↓Read_XML [steps.ReadXMLStep-1607103614985]: 
+  dataFile: directory + '/' + filename
+↓CountLines [steps.XMLCountStep-1607362110732]: 
+  nodeName: countLines
+  sourceDefinition: 
+    - xmlizable: 
+      - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+      - com.twinsoft.convertigo.beans.common.XMLVector: 
+        - java.lang.String: 
+          - ↑value: 1607103614985
+        - java.lang.String: 
+          - ↑value: ./dataset/record
+↓Call_Transaction [steps.TransactionStep-1607330388553]: 
+  output: true
+  sourceTransaction: test_group_fs.test_group_fs.PostBulkDocuments
+  ↓data [variables.StepMultiValuedVariable-1607330388555]: 
+    description: Documents contents
+    sourceDefinition: 
+      - xmlizable: 
+        - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+        - com.twinsoft.convertigo.beans.common.XMLVector: 
+          - java.lang.String: 
+            - ↑value: 1607103614985
+          - java.lang.String: 
+            - ↑value: ./dataset/record
+  ↓_use_json_base [variables.StepVariable-1607593690509]: 
+    description: (string) – JSON use as a base for the array of documents (js array), or for individual documents (js object). Optional
+    sourceDefinition: 
+      - xmlizable: 
+        - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+        - com.twinsoft.convertigo.beans.common.XMLVector: 
+          - java.lang.String: 
+            - ↑value: 1607347835431
+          - java.lang.String: 
+            - ↑value: ./i/text()
+↓Complex [steps.XMLComplexStep-1607696209069]: 
+  isEnabled: false
+  nodeName: container
+  output: false
+  ↓Iterator [steps.IteratorStep-1607597755779]: 
+    sourceDefinition: 
+      - xmlizable: 
+        - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+        - com.twinsoft.convertigo.beans.common.XMLVector: 
+          - java.lang.String: 
+            - ↑value: 1607330388553
+          - java.lang.String: 
+            - ↑value: ./document/couchdb_output/items/item
+    ↓Parallel [steps.ParallelStep-1607688058444]: 
+      maxNumberOfThreads: 10
+      ↓Call_Sequence [steps.SequenceStep-1607598033905]: 
+        sourceSequence: test_group_fs.attachJPG2Doc
+        ↓docid [variables.StepVariable-1607598033907]: 
+          description: Document ID
+          sourceDefinition: 
+            - xmlizable: 
+              - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+              - com.twinsoft.convertigo.beans.common.XMLVector: 
+                - java.lang.String: 
+                  - ↑value: 1607597755779
+                - java.lang.String: 
+                  - ↑value: ./id/text()
+        ↓attnb [variables.StepVariable-1607598179106]: 
+          description: Attachment name
+          value: 2
+↓Write_XML [steps.WriteXMLStep-1607941090225]: 
+  appendResult: true
+  dataFile: '".//storedDocs.xml"'
+  isEnabled: false
+  sourceDefinition: 
+    - xmlizable: 
+      - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+      - com.twinsoft.convertigo.beans.common.XMLVector: 
+        - java.lang.String: 
+          - ↑value: 1607330388553
+        - java.lang.String: 
+          - ↑value: ./document/couchdb_output/items/item/id
+↓i [variables.RequestableVariable-1607347664182]: 
+↓directory [variables.RequestableVariable-1607383755132]: 
+  value: F:\\TMP\\off
+↓attnb [variables.RequestableVariable-1607612284234]: 
+  description: Attachment name
+  value: 2
+↓filename [variables.RequestableVariable-1607612541842]: 
+↓maxParallelThreads [variables.RequestableVariable-1607698327602]: 
+  value: 10

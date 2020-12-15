@@ -1,0 +1,13 @@
+↓Set_authenticated_user [steps.SetAuthenticatedUserStep-1607330595733]: 
+  output: true
+  userid: 
+    - xmlizable: 
+      - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+      - SmartType: 
+        - ↑mode: JS
+        - →→: user
+↓user [variables.RequestableVariable-1607330818040]: 
+  value: 
+↓Test_Case [core.TestCase]: 
+  ↓user [variables.TestCaseVariable-1607333887334]: 
+    value: toto

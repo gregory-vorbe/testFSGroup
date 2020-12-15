@@ -1,0 +1,100 @@
+responseTimeout: 600
+↓Get_authenticated_user [steps.GetAuthenticatedUserStep-1607333678801]: 
+  output: false
+↓jSimpleSource [steps.SimpleSourceStep-1607333808485]: 
+  sourceDefinition: 
+    - xmlizable: 
+      - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+      - com.twinsoft.convertigo.beans.common.XMLVector: 
+        - java.lang.String: 
+          - ↑value: 1607333678801
+        - java.lang.String: 
+          - ↑value: ./text()
+  variableName: jUserId
+↓jElement [steps.ElementStep-1607333745423]: 
+  expression: jUserId != null && jUserId != ''
+  nodeName: isAuthUser
+  output: false
+↓Complex [steps.XMLComplexStep-1607337956721]: 
+  output: false
+  ↓IfIsIn [steps.IsInStep-1607333661343]: 
+    sourceDefinition: 
+      - xmlizable: 
+        - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+        - com.twinsoft.convertigo.beans.common.XMLVector: 
+          - java.lang.String: 
+            - ↑value: 1607333745423
+          - java.lang.String: 
+            - ↑value: ./text()
+    testDefinition: 
+      - xmlizable: 
+        - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+        - com.twinsoft.convertigo.beans.common.XMLVector: 
+          - xmlizable: 
+            - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+            - com.twinsoft.convertigo.beans.common.XMLVector: 
+              - java.lang.String: 
+                - ↑value: AND
+              - java.lang.String: 
+                - ↑value: true
+    ↓Call_Sequence [steps.SequenceStep-1607341674573]: 
+      sourceSequence: test_group_fs.removeUserFromAllGroups
+      ↓user [variables.StepVariable-1607341674575]: 
+        sourceDefinition: 
+          - xmlizable: 
+            - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+            - com.twinsoft.convertigo.beans.common.XMLVector: 
+              - java.lang.String: 
+                - ↑value: 1607333678801
+              - java.lang.String: 
+                - ↑value: ./text()
+    ↓Sequence_JS [steps.SimpleStep-1607334722700]: 
+      expression: |
+        '
+        Array.prototype.fill = function(t){
+        	for(i=0;i<this.length;i++){
+        		this[i] = t;
+        	}
+        	return this;
+        }
+        
+        var ln = maxGroup.length;
+        var ar = new Array(ln).fill(0).join('''');'
+      isEnabled: false
+    ↓jWhile [steps.WhileStep-1607334105091]: 
+      condition: maxGroup>0
+      ↓xGroup [steps.ElementStep-1607334246421]: 
+        expression: '"Group" + (''00'' + maxGroup--).substr(-3)'
+        nodeName: xGroup
+      ↓Call_Sequence [steps.SequenceStep-1607334211912]: 
+        sourceSequence: lib_FullSyncGrp.SetUserInGroup
+        ↓user [variables.StepVariable-1607334211914]: 
+          sourceDefinition: 
+            - xmlizable: 
+              - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+              - com.twinsoft.convertigo.beans.common.XMLVector: 
+                - java.lang.String: 
+                  - ↑value: 1607333678801
+                - java.lang.String: 
+                  - ↑value: ./text()
+        ↓group [variables.StepVariable-1607334211916]: 
+          sourceDefinition: 
+            - xmlizable: 
+              - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+              - com.twinsoft.convertigo.beans.common.XMLVector: 
+                - java.lang.String: 
+                  - ↑value: 1607334246421
+                - java.lang.String: 
+                  - ↑value: ./text()
+↓Count [steps.XMLCountStep-1607337842247]: 
+  nodeName: count
+  sourceDefinition: 
+    - xmlizable: 
+      - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+      - com.twinsoft.convertigo.beans.common.XMLVector: 
+        - java.lang.String: 
+          - ↑value: 1607337956721
+        - java.lang.String: 
+          - ↑value: ./xGroup
+↓maxGroup [variables.RequestableVariable-1607333604765]: 
+  value: 10

@@ -1,0 +1,657 @@
+↑isRoot: true
+comment: My First Page as root page
+preloadPriority: high
+scriptContent: 
+  - xmlizable: 
+    - ↑classname: com.twinsoft.convertigo.beans.common.FormatedContent
+    - com.twinsoft.convertigo.beans.common.FormatedContent: 
+      →: |
+        '/*Begin_c8o_PageImport*/
+        /*End_c8o_PageImport*/
+        /*Begin_c8o_PageDeclaration*/
+        	public JSON: Object;
+        	public Array: Object;
+        	/*End_c8o_PageDeclaration*/
+        /*Begin_c8o_PageConstructor*/
+        		this.JSON=JSON;
+        		this.Array = Array;
+        		/*End_c8o_PageConstructor*/
+        /*Begin_c8o_PageFunction*/
+        	/*End_c8o_PageFunction*/
+        '
+segment: path-to-page
+title: First page
+↓Header [mobile.components.UIDynamicElement-1491634212350]: 
+  beanData: '{"ionBean":"Header"}'
+  comment: Page header
+  tagName: ion-header
+  ↓NavBar [mobile.components.UIDynamicElement-1491634231108]: 
+    beanData: '{"ionBean":"NavBar"}'
+    tagName: ion-navbar
+    ↓BarTitle [mobile.components.UIDynamicElement-1491634265317]: 
+      beanData: '{"ionBean":"BarTitle"}'
+      tagName: ion-title
+      ↓Text [mobile.components.UIText-1491634275121]: 
+        textValue: 
+          - xmlizable: 
+            - ↑classname: com.twinsoft.convertigo.beans.mobile.components.MobileSmartSourceType
+            - MobileSmartSourceType: plain:My First App
+    ↓Button [mobile.components.UIDynamicElement-1491634442029]: 
+      beanData: '{"ionBean":"Button","MenuMode":"plain:menuToggle"}'
+      comment: A button to toggle the menu
+      tagName: button
+      ↓Icon [mobile.components.UIDynamicElement-1491634475867]: 
+        beanData: '{"ionBean":"Icon","IconName":"plain:menu"}'
+        tagName: ion-icon
+    ↓ButtonSet [mobile.components.UIDynamicElement-1491634611427]: 
+      beanData: '{"ionBean":"ButtonSet","SetPosition":"plain:right"}'
+      tagName: ion-buttons
+      ↓Button [mobile.components.UIDynamicElement-1491634621907]: 
+        beanData: '{"ionBean":"Button"}'
+        tagName: button
+        ↓Icon [mobile.components.UIDynamicElement-1491634637555]: 
+          beanData: '{"ionBean":"Icon","IconName":"plain:more"}'
+          tagName: ion-icon
+↓Content [mobile.components.UIDynamicElement-1489674805352]: 
+  beanData: '{"ionBean":"Content"}'
+  comment: Page content
+  tagName: ion-content
+  ↓Grid [mobile.components.UIDynamicElement-1607331160425]: 
+    beanData: '{"ionBean":"Grid"}'
+    tagName: ion-grid
+    ↓GridRow_Login [mobile.components.UIDynamicElement-1607331170688]: 
+      beanData: '{"ionBean":"GridRow","AlignItemsEnd":"plain:align-items-end"}'
+      tagName: ion-row
+      ↓GridCol2 [mobile.components.UIDynamicElement-1607331869160]: 
+        beanData: '{"ionBean":"GridCol"}'
+        tagName: ion-col
+        ↓GenericItem [mobile.components.UIDynamicElement-1607506071714]: 
+          beanData: '{"ionBean":"GenericItem"}'
+          tagName: ion-item
+          ↓Label [mobile.components.UIDynamicElement-1607506087618]: 
+            beanData: '{"ionBean":"Label","Floating":"plain:floating"}'
+            tagName: ion-label
+            ↓Text [mobile.components.UIText-1607506092252]: 
+              i18n: false
+              textValue: 
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.mobile.components.MobileSmartSourceType
+                  - MobileSmartSourceType: plain:User name
+          ↓TextInput [mobile.components.UIDynamicElement-1607331881964]: 
+            beanData: |
+              '{
+               "ionBean": "Input",
+               "Placeholder": "plain:username",
+               "Value": "plain:User1"
+              }'
+            identifier: user
+            tagName: ion-input
+      ↓GridCol [mobile.components.UIDynamicElement-1607331162582]: 
+        beanData: '{"ionBean":"GridCol"}'
+        tagName: ion-col
+        ↓Button [mobile.components.UIDynamicElement-1607331135799]: 
+          beanData: '{"ionBean":"Button"}'
+          tagName: button
+          ↓Text [mobile.components.UIText-1607331141790]: 
+            i18n: false
+            textValue: 
+              - xmlizable: 
+                - ↑classname: com.twinsoft.convertigo.beans.mobile.components.MobileSmartSourceType
+                - MobileSmartSourceType: plain:login
+          ↓Event [mobile.components.UIControlEvent-1607331250994]: 
+            ↓initVars [mobile.components.UICustomAction-1607389742018]: 
+              actionValue: 
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.common.FormatedContent
+                  - com.twinsoft.convertigo.beans.common.FormatedContent: 
+                    →: |
+                      '		page.c8o.log.debug(''[MB] ''+ props.actionFunction +'': ''+ props.actionName);
+                      		delete page.local.ResetDone;
+                      		resolve();
+                      '
+              ↓ClearDataSource [mobile.components.UIDynamicAction-1607435520838]: 
+                beanData: '{"ionBean":"ClearDataSourceAction","requestables":"source:{\"filter\":\"Sequence\",\"project\":\"test_group_fs\",\"input\":\"listen([''test_group_fs.login''])\"}"}'
+                ↓CallSequence [mobile.components.UIDynamicAction-1607331258776]: 
+                  beanData: '{"ionBean":"CallSequenceAction","requestable":"plain:test_group_fs.login"}'
+                  ↓user [mobile.components.UIControlVariable-1607331263399]: 
+                    comment: new variable
+                    varValue: 
+                      - xmlizable: 
+                        - ↑classname: com.twinsoft.convertigo.beans.mobile.components.MobileSmartSourceType
+                        - MobileSmartSourceType: script:this.user.value
+                  ↓SetGlobal [mobile.components.UIDynamicAction-1607351137760]: 
+                    beanData: |
+                      '{
+                       "ionBean": "SetGlobalAction",
+                       "Property": "plain:canAddUser",
+                       "Value": "script:true"
+                      }'
+      ↓GridCol1 [mobile.components.UIDynamicElement-1607331166888]: 
+        beanData: '{"ionBean":"GridCol"}'
+        tagName: ion-col
+        ↓Div [mobile.components.UIDynamicElement-1607331204170]: 
+          beanData: '{"ionBean":"DivTag"}'
+          tagName: div
+          ↓Text [mobile.components.UIText-1607331209536]: 
+            i18n: false
+            textValue: 
+              - xmlizable: 
+                - ↑classname: com.twinsoft.convertigo.beans.mobile.components.MobileSmartSourceType
+                - MobileSmartSourceType: source:{"filter":"Sequence","project":"test_group_fs","input":"listen(['test_group_fs.login'])?.authenticatedUserID"}
+    ↓GridRow_Groups [mobile.components.UIDynamicElement-1607331837122]: 
+      beanData: '{"ionBean":"GridRow","AlignItemsEnd":"plain:align-items-end"}'
+      tagName: ion-row
+      ↓GridCol2 [mobile.components.UIDynamicElement-1607331919357]: 
+        beanData: '{"ionBean":"GridCol"}'
+        tagName: ion-col
+        ↓GenericItem [mobile.components.UIDynamicElement-1607506164011]: 
+          beanData: '{"ionBean":"GenericItem"}'
+          tagName: ion-item
+          ↓Label [mobile.components.UIDynamicElement-1607506164014]: 
+            beanData: '{"ionBean":"Label","Floating":"plain:floating"}'
+            tagName: ion-label
+            ↓Text [mobile.components.UIText-1607506164017]: 
+              i18n: false
+              textValue: 
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.mobile.components.MobileSmartSourceType
+                  - MobileSmartSourceType: plain:# Groups
+          ↓TextInput [mobile.components.UIDynamicElement-1607331919360]: 
+            beanData: |
+              '{
+               "ionBean": "Input",
+               "Placeholder": "plain:# groups",
+               "Value": "plain:5"
+              }'
+            identifier: usergroup
+            tagName: ion-input
+      ↓GridCol [mobile.components.UIDynamicElement-1607331837125]: 
+        beanData: '{"ionBean":"GridCol"}'
+        tagName: ion-col
+        ↓Button [mobile.components.UIDynamicElement-1607331837128]: 
+          beanData: '{"ionBean":"Button"}'
+          tagName: button
+          ↓Text [mobile.components.UIText-1607331837131]: 
+            i18n: false
+            textValue: 
+              - xmlizable: 
+                - ↑classname: com.twinsoft.convertigo.beans.mobile.components.MobileSmartSourceType
+                - MobileSmartSourceType: plain:Add user to group
+          ↓Event [mobile.components.UIControlEvent-1607331837134]: 
+            ↓ClearDataSource [mobile.components.UIDynamicAction-1607435646701]: 
+              beanData: '{"ionBean":"ClearDataSourceAction","requestables":"source:{\"filter\":\"Sequence\",\"project\":\"test_group_fs\",\"input\":\"listen([''test_group_fs.listGroups''])\"}"}'
+              ↓CallSequence [mobile.components.UIDynamicAction-1607336706198]: 
+                beanData: '{"ionBean":"CallSequenceAction","requestable":"plain:test_group_fs.UserBulkGroups"}'
+                ↓maxGroup [mobile.components.UIControlVariable-1607336708660]: 
+                  comment: new variable
+                  varValue: 
+                    - xmlizable: 
+                      - ↑classname: com.twinsoft.convertigo.beans.mobile.components.MobileSmartSourceType
+                      - MobileSmartSourceType: script:this.usergroup.value
+                ↓CallSequence [mobile.components.UIDynamicAction-1607340892516]: 
+                  beanData: '{"ionBean":"CallSequenceAction","requestable":"plain:test_group_fs.listGroups"}'
+                  ↓user [mobile.components.UIControlVariable-1607340897223]: 
+                    comment: new variable
+                    varValue: 
+                      - xmlizable: 
+                        - ↑classname: com.twinsoft.convertigo.beans.mobile.components.MobileSmartSourceType
+                        - MobileSmartSourceType: script:this.user.value
+                ↓SetGlobal [mobile.components.UIDynamicAction-1607386294483]: 
+                  beanData: |
+                    '{
+                     "ionBean": "SetGlobalAction",
+                     "Property": "plain:canSync",
+                     "Value": "script:true"
+                    }'
+          ↓Attr [mobile.components.UIAttribute-1607351006754]: 
+            attrName: '[disabled]'
+            attrValue: 
+              - xmlizable: 
+                - ↑classname: com.twinsoft.convertigo.beans.mobile.components.MobileSmartSourceType
+                - MobileSmartSourceType: script:!(this.global.canAddUser !== undefined && this.global.canAddUser == true)
+      ↓GridCol1 [mobile.components.UIDynamicElement-1607331837146]: 
+        beanData: '{"ionBean":"GridCol"}'
+        tagName: ion-col
+        ↓Div [mobile.components.UIDynamicElement-1607331837149]: 
+          beanData: '{"ionBean":"DivTag"}'
+          isEnabled: false
+          tagName: div
+          ↓Text [mobile.components.UIText-1607331837152]: 
+            i18n: false
+            textValue: 
+              - xmlizable: 
+                - ↑classname: com.twinsoft.convertigo.beans.mobile.components.MobileSmartSourceType
+                - MobileSmartSourceType: source:{"filter":"Sequence","project":"test_group_fs","input":"listen(['test_group_fs.UserBulkGroups'])?.count"}
+        ↓Div1 [mobile.components.UIDynamicElement-1607340928046]: 
+          beanData: '{"ionBean":"DivTag"}'
+          isEnabled: false
+          tagName: div
+          ↓Text [mobile.components.UIText-1607340928049]: 
+            i18n: false
+            textValue: 
+              - xmlizable: 
+                - ↑classname: com.twinsoft.convertigo.beans.mobile.components.MobileSmartSourceType
+                - MobileSmartSourceType: source:{"filter":"Sequence","project":"test_group_fs","input":"listen(['test_group_fs.listGroups'])?.group"}
+        ↓GenericItem [mobile.components.UIDynamicElement-1607515041691]: 
+          beanData: '{"ionBean":"GenericItem"}'
+          tagName: ion-item
+          ↓Label [mobile.components.UIDynamicElement-1607515041694]: 
+            beanData: '{"ionBean":"Label","Floating":"plain:floating"}'
+            tagName: ion-label
+            ↓Text [mobile.components.UIText-1607515041697]: 
+              i18n: false
+              textValue: 
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.mobile.components.MobileSmartSourceType
+                  - MobileSmartSourceType: plain:Groups
+          ↓SelectContainer [mobile.components.UIDynamicElement-1607515041700]: 
+            beanData: '{"ionBean":"Select"}'
+            tagName: ion-select
+            ↓Directive [mobile.components.UIControlDirective-1607515309412]: 
+              directiveSource: 
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.mobile.components.MobileSmartSourceType
+                  - MobileSmartSourceType: source:{"filter":"Sequence","project":"test_group_fs","input":"listen(['test_group_fs.listGroups'])?.group"}
+              ↓SelectOption [mobile.components.UIDynamicElement-1607515041703]: 
+                beanData: '{"ionBean":"Option"}'
+                tagName: ion-option
+                ↓Text [mobile.components.UIText-1607515041706]: 
+                  i18n: false
+                  textValue: 
+                    - xmlizable: 
+                      - ↑classname: com.twinsoft.convertigo.beans.mobile.components.MobileSmartSourceType
+                      - MobileSmartSourceType: source:{"filter":"Iteration","project":"test_group_fs","input":"item1607515309412"}
+                ↓Attr2 [mobile.components.UIAttribute-1607531535629]: 
+                  attrName: disabled
+                  attrValue: 
+                    - xmlizable: 
+                      - ↑classname: com.twinsoft.convertigo.beans.mobile.components.MobileSmartSourceType
+                      - MobileSmartSourceType: plain:true
+            ↓Attr1 [mobile.components.UIAttribute-1607531387931]: 
+              attrName: interface
+              attrValue: 
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.mobile.components.MobileSmartSourceType
+                  - MobileSmartSourceType: plain:popover
+          ↓Attr [mobile.components.UIAttribute-1607515657253]: 
+            attrName: '*ngIf'
+            attrValue: 
+              - xmlizable: 
+                - ↑classname: com.twinsoft.convertigo.beans.mobile.components.MobileSmartSourceType
+                - MobileSmartSourceType: plain:listen(['test_group_fs.listGroups'])?.group
+    ↓GridRow_Sync [mobile.components.UIDynamicElement-1607332043191]: 
+      beanData: '{"ionBean":"GridRow","AlignItemsEnd":"plain:align-items-end"}'
+      tagName: ion-row
+      ↓GridCol2 [mobile.components.UIDynamicElement-1607332043194]: 
+        beanData: '{"ionBean":"GridCol"}'
+        tagName: ion-col
+        ↓GenericItem [mobile.components.UIDynamicElement-1607536730712]: 
+          beanData: '{"ionBean":"GenericItem"}'
+          tagName: ion-item
+          ↓Label [mobile.components.UIDynamicElement-1607536730715]: 
+            beanData: '{"ionBean":"Label","Floating":"plain:floating"}'
+            tagName: ion-label
+            ↓Text [mobile.components.UIText-1607536730718]: 
+              i18n: false
+              textValue: 
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.mobile.components.MobileSmartSourceType
+                  - MobileSmartSourceType: plain:# Batch size
+          ↓TextInput [mobile.components.UIDynamicElement-1607536730721]: 
+            beanData: |
+              '{
+               "ionBean": "Input",
+               "Placeholder": "plain:# batch size",
+               "Value": "plain:100"
+              }'
+            identifier: batchsize
+            tagName: ion-input
+      ↓GridCol [mobile.components.UIDynamicElement-1607332043200]: 
+        beanData: '{"ionBean":"GridCol"}'
+        tagName: ion-col
+        ↓Button [mobile.components.UIDynamicElement-1607332043203]: 
+          beanData: '{"ionBean":"Button"}'
+          tagName: button
+          ↓Text [mobile.components.UIText-1607332043206]: 
+            i18n: false
+            textValue: 
+              - xmlizable: 
+                - ↑classname: com.twinsoft.convertigo.beans.mobile.components.MobileSmartSourceType
+                - MobileSmartSourceType: plain:SYNC
+          ↓Event [mobile.components.UIControlEvent-1607332043209]: 
+            ↓StartStat [mobile.components.UICustomAction-1607337278622]: 
+              actionValue: 
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.common.FormatedContent
+                  - com.twinsoft.convertigo.beans.common.FormatedContent: 
+                    →: |
+                      '		page.c8o.log.debug(''[MB] ''+ props.actionFunction +'': ''+ props.actionName);
+                      		page.local.StartStat = new Date().getTime();
+                      		resolve();
+                      '
+              ↓SyncData [mobile.components.UIDynamicAction-1607332063545]: 
+                beanData: |
+                  '{
+                   "ionBean": "FullSyncSyncAction",
+                   "requestable": "plain:test_group_fs.test_group_fs",
+                   "BatchSize": "script:this.batchsize.value"
+                  }'
+                ↓EndStat [mobile.components.UICustomAction-1607337283309]: 
+                  actionValue: 
+                    - xmlizable: 
+                      - ↑classname: com.twinsoft.convertigo.beans.common.FormatedContent
+                      - com.twinsoft.convertigo.beans.common.FormatedContent: 
+                        →: |
+                          '		page.c8o.log.debug(''[MB] ''+ props.actionFunction +'': ''+ props.actionName);
+                          		const end = new Date().getTime();
+                          		const delta =  end - page.local.StartStat*1;
+                          		page.local.EndStat = end + '' = '' + delta + ''ms'';
+                          		resolve();
+                          '
+                  ↓SetGlobal [mobile.components.UIDynamicAction-1608025163870]: 
+                    beanData: |
+                      '{
+                       "ionBean": "SetGlobalAction",
+                       "Property": "plain:canGetView",
+                       "Value": "script:true"
+                      }'
+          ↓Attr [mobile.components.UIAttribute-1607386189567]: 
+            attrName: '[disabled]'
+            attrValue: 
+              - xmlizable: 
+                - ↑classname: com.twinsoft.convertigo.beans.mobile.components.MobileSmartSourceType
+                - MobileSmartSourceType: script:!(this.global.canSync !== undefined && this.global.canSync == true)
+      ↓GridCol1 [mobile.components.UIDynamicElement-1607332043212]: 
+        beanData: '{"ionBean":"GridCol"}'
+        tagName: ion-col
+        ↓Div [mobile.components.UIDynamicElement-1607332043215]: 
+          beanData: '{"ionBean":"DivTag"}'
+          tagName: div
+          ↓Text [mobile.components.UIText-1607332043218]: 
+            i18n: false
+            textValue: 
+              - xmlizable: 
+                - ↑classname: com.twinsoft.convertigo.beans.mobile.components.MobileSmartSourceType
+                - MobileSmartSourceType: 'script:this.local.StartStat ? this.local.StartStat + '' => '' : '''''
+          ↓Text1 [mobile.components.UIText-1607337567786]: 
+            i18n: false
+            textValue: 
+              - xmlizable: 
+                - ↑classname: com.twinsoft.convertigo.beans.mobile.components.MobileSmartSourceType
+                - MobileSmartSourceType: script:this.local.EndStat
+    ↓GridRow_Views [mobile.components.UIDynamicElement-1608024606332]: 
+      beanData: '{"ionBean":"GridRow","AlignItemsEnd":"plain:align-items-end"}'
+      tagName: ion-row
+      ↓GridCol2 [mobile.components.UIDynamicElement-1608024606335]: 
+        beanData: '{"ionBean":"GridCol"}'
+        tagName: ion-col
+        ↓GenericItem [mobile.components.UIDynamicElement-1608024606338]: 
+          beanData: '{"ionBean":"GenericItem"}'
+          tagName: ion-item
+          ↓Label [mobile.components.UIDynamicElement-1608024606341]: 
+            beanData: '{"ionBean":"Label","Floating":"plain:floating"}'
+            tagName: ion-label
+            ↓Text [mobile.components.UIText-1608024606344]: 
+              i18n: false
+              textValue: 
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.mobile.components.MobileSmartSourceType
+                  - MobileSmartSourceType: plain:View
+          ↓SelectContainer [mobile.components.UIDynamicElement-1608024606347]: 
+            beanData: '{"ionBean":"Select"}'
+            tagName: ion-select
+            ↓SelectOption [mobile.components.UIDynamicElement-1608024606350]: 
+              beanData: '{"ionBean":"Option","value":"plain:DocByAttachments"}'
+              tagName: ion-option
+              ↓Text [mobile.components.UIText-1608024606353]: 
+                i18n: false
+                textValue: 
+                  - xmlizable: 
+                    - ↑classname: com.twinsoft.convertigo.beans.mobile.components.MobileSmartSourceType
+                    - MobileSmartSourceType: plain:Docs w/ attachments
+            ↓SelectOption1 [mobile.components.UIDynamicElement-1608024606356]: 
+              beanData: '{"ionBean":"Option","value":"plain:NoDocByAttachments"}'
+              tagName: ion-option
+              ↓Text [mobile.components.UIText-1608024606359]: 
+                i18n: false
+                textValue: 
+                  - xmlizable: 
+                    - ↑classname: com.twinsoft.convertigo.beans.mobile.components.MobileSmartSourceType
+                    - MobileSmartSourceType: plain:Docs w/o attachments
+            ↓Attr1 [mobile.components.UIAttribute-1608024606365]: 
+              attrName: '[(ngModel)]'
+              attrValue: 
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.mobile.components.MobileSmartSourceType
+                  - MobileSmartSourceType: script:this.global.selectView
+      ↓GridCol [mobile.components.UIDynamicElement-1608024606368]: 
+        beanData: '{"ionBean":"GridCol"}'
+        tagName: ion-col
+        ↓Button [mobile.components.UIDynamicElement-1608024606371]: 
+          beanData: '{"ionBean":"Button"}'
+          tagName: button
+          ↓Text [mobile.components.UIText-1608024606374]: 
+            i18n: false
+            textValue: 
+              - xmlizable: 
+                - ↑classname: com.twinsoft.convertigo.beans.mobile.components.MobileSmartSourceType
+                - MobileSmartSourceType: plain:get
+          ↓Event [mobile.components.UIControlEvent-1608024606377]: 
+            ↓IfElse [mobile.components.UIDynamicIf-1608024952158]: 
+              beanData: '{"ionBean":"IfElseAction","condition":"script:this.global.selectView == ''DocByAttachments''"}'
+              ↓QueryView [mobile.components.UIDynamicAction-1608024884644]: 
+                beanData: |
+                  '{
+                   "ionBean": "FullSyncViewAction",
+                   "fsview": "plain:test_group_fs.test_group_fs.Design_document.DocByAttachments",
+                   "reduce": "plain:true"
+                  }'
+                ↓SetGlobal [mobile.components.UIDynamicAction-1608030840407]: 
+                  beanData: |
+                    '{
+                     "ionBean": "SetGlobalAction",
+                     "Property": "plain:viewDocsAttachments",
+                     "Value": "script:out"
+                    }'
+              ↓Else_Handler [mobile.components.UIActionElseEvent-1608025009296]: 
+                ↓QueryView [mobile.components.UIDynamicAction-1608025057436]: 
+                  beanData: |
+                    '{
+                     "ionBean": "FullSyncViewAction",
+                     "fsview": "plain:test_group_fs.test_group_fs.Design_document.NoDocByAttachments",
+                     "reduce": "plain:true"
+                    }'
+                  ↓SetGlobal [mobile.components.UIDynamicAction-1608030877508]: 
+                    beanData: |
+                      '{
+                       "ionBean": "SetGlobalAction",
+                       "Property": "plain:viewDocsNoAttachments",
+                       "Value": "script:out"
+                      }'
+          ↓Attr [mobile.components.UIAttribute-1608025099000]: 
+            attrName: '[disabled]'
+            attrValue: 
+              - xmlizable: 
+                - ↑classname: com.twinsoft.convertigo.beans.mobile.components.MobileSmartSourceType
+                - MobileSmartSourceType: script:!(this.global.canGetView !== undefined && this.global.canGetView == true && this.global.selectView !== undefined)
+      ↓GridCol1 [mobile.components.UIDynamicElement-1608024606398]: 
+        beanData: '{"ionBean":"GridCol"}'
+        tagName: ion-col
+        ↓Div [mobile.components.UIDynamicElement-1608024606401]: 
+          beanData: '{"ionBean":"DivTag"}'
+          tagName: div
+          ↓Text1 [mobile.components.UIText-1608024606404]: 
+            i18n: false
+            textValue: 
+              - xmlizable: 
+                - ↑classname: com.twinsoft.convertigo.beans.mobile.components.MobileSmartSourceType
+                - MobileSmartSourceType: 'script:this.global.viewDocsAttachments && Array.isArray(this.global.viewDocsAttachments.rows) ? this.global.viewDocsAttachments.rows[0] && this.global.viewDocsAttachments.rows[0].value ? this.global.viewDocsAttachments.rows[0].value : ''0'' : ''*0*'''
+          ↓Text11 [mobile.components.UIText-1608025275980]: 
+            i18n: false
+            textValue: 
+              - xmlizable: 
+                - ↑classname: com.twinsoft.convertigo.beans.mobile.components.MobileSmartSourceType
+                - MobileSmartSourceType: 'script:this.global.viewDocsNoAttachments && Array.isArray(this.global.viewDocsNoAttachments.rows) ? this.global.viewDocsNoAttachments.rows[0] && this.global.viewDocsNoAttachments.rows[0].value ? this.global.viewDocsNoAttachments.rows[0].value : ''0'' : ''*0*'''
+    ↓GridRow_Reset [mobile.components.UIDynamicElement-1607388774360]: 
+      beanData: '{"ionBean":"GridRow","AlignItemsEnd":"plain:align-items-end"}'
+      tagName: ion-row
+      ↓GridCol2 [mobile.components.UIDynamicElement-1607388774363]: 
+        beanData: '{"ionBean":"GridCol"}'
+        tagName: ion-col
+        ↓GenericItem [mobile.components.UIDynamicElement-1607509629053]: 
+          beanData: '{"ionBean":"GenericItem"}'
+          tagName: ion-item
+          ↓Label [mobile.components.UIDynamicElement-1607509629056]: 
+            beanData: '{"ionBean":"Label","Floating":"plain:floating"}'
+            tagName: ion-label
+            ↓Text [mobile.components.UIText-1607509629059]: 
+              i18n: false
+              textValue: 
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.mobile.components.MobileSmartSourceType
+                  - MobileSmartSourceType: plain:Verb
+          ↓SelectContainer [mobile.components.UIDynamicElement-1607509700177]: 
+            beanData: '{"ionBean":"Select"}'
+            tagName: ion-select
+            ↓SelectOption [mobile.components.UIDynamicElement-1607509768207]: 
+              beanData: '{"ionBean":"Option","value":"plain:destroy"}'
+              tagName: ion-option
+              ↓Text [mobile.components.UIText-1607509777183]: 
+                i18n: false
+                textValue: 
+                  - xmlizable: 
+                    - ↑classname: com.twinsoft.convertigo.beans.mobile.components.MobileSmartSourceType
+                    - MobileSmartSourceType: plain:destroy
+            ↓SelectOption1 [mobile.components.UIDynamicElement-1607509797847]: 
+              beanData: '{"ionBean":"Option","value":"plain:reset"}'
+              tagName: ion-option
+              ↓Text [mobile.components.UIText-1607509797850]: 
+                i18n: false
+                textValue: 
+                  - xmlizable: 
+                    - ↑classname: com.twinsoft.convertigo.beans.mobile.components.MobileSmartSourceType
+                    - MobileSmartSourceType: plain:reset
+            ↓Attr [mobile.components.UIAttribute-1607512799435]: 
+              attrName: '*ngIf'
+              attrValue: 
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.mobile.components.MobileSmartSourceType
+                  - MobileSmartSourceType: plain:this.global.showSelect || false
+              isEnabled: false
+            ↓Attr1 [mobile.components.UIAttribute-1607513676680]: 
+              attrName: '[(ngModel)]'
+              attrValue: 
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.mobile.components.MobileSmartSourceType
+                  - MobileSmartSourceType: script:this.global.selectVerbs
+      ↓GridCol [mobile.components.UIDynamicElement-1607388774369]: 
+        beanData: '{"ionBean":"GridCol"}'
+        tagName: ion-col
+        ↓Button [mobile.components.UIDynamicElement-1607388774372]: 
+          beanData: '{"ionBean":"Button"}'
+          tagName: button
+          ↓Text [mobile.components.UIText-1607388774375]: 
+            i18n: false
+            textValue: 
+              - xmlizable: 
+                - ↑classname: com.twinsoft.convertigo.beans.mobile.components.MobileSmartSourceType
+                - MobileSmartSourceType: script:this.global.selectVerbs
+          ↓Event [mobile.components.UIControlEvent-1607388774378]: 
+            ↓CallFullSync [mobile.components.UIDynamicAction-1607389416684]: 
+              beanData: |
+                '{
+                 "ionBean": "CallFullSyncAction",
+                 "requestable": "plain:test_group_fs.test_group_fs",
+                 "verb": "script:this.global.selectVerbs"
+                }'
+              ↓CallSequence [mobile.components.UIDynamicAction-1607389061309]: 
+                beanData: |
+                  '{
+                   "ionBean": "CallSequenceAction",
+                   "requestable": "plain:test_group_fs.logout",
+                   "noAutoLogin": "plain:true"
+                  }'
+                ↓ClearDataSource [mobile.components.UIDynamicAction-1607389235128]: 
+                  beanData: '{"ionBean":"ClearDataSourceAction","requestables":"source:{\"filter\":\"Sequence\",\"project\":\"test_group_fs\",\"input\":\"listen([''test_group_fs.login''])\"}"}'
+                ↓ClearDataSource1 [mobile.components.UIDynamicAction-1607390117764]: 
+                  beanData: '{"ionBean":"ClearDataSourceAction","requestables":"source:{\"filter\":\"Sequence\",\"project\":\"test_group_fs\",\"input\":\"listen([''test_group_fs.listGroups''])\"}"}'
+                ↓FSaction [mobile.components.UICustomAction-1607388774381]: 
+                  actionValue: 
+                    - xmlizable: 
+                      - ↑classname: com.twinsoft.convertigo.beans.common.FormatedContent
+                      - com.twinsoft.convertigo.beans.common.FormatedContent: 
+                        →: |
+                          '		page.c8o.log.debug(''[MB] ''+ props.actionFunction +'': ''+ props.actionName);
+                          		delete page.global.canAddUser;
+                          		delete page.global.canSync;
+                          		delete page.global.canGetView;
+                          		delete page.global.viewDocsAttachments;
+                          		delete page.global.viewDocsNoAttachments;
+                          		page.global.selectView = null;
+                          		delete page.local.StartStat;
+                          		delete page.local.EndStat;
+                          		page.local.ResetDone = page.global.selectVerbs + " DONE!";
+                          		resolve();
+                          '
+                  ↓action [mobile.components.UIControlVariable-1607532113952]: 
+                    varValue: 
+                      - xmlizable: 
+                        - ↑classname: com.twinsoft.convertigo.beans.mobile.components.MobileSmartSourceType
+                        - MobileSmartSourceType: script:this.global.selectVerbs
+      ↓GridCol1 [mobile.components.UIDynamicElement-1607388774393]: 
+        beanData: '{"ionBean":"GridCol"}'
+        tagName: ion-col
+        ↓Div [mobile.components.UIDynamicElement-1607388774396]: 
+          beanData: '{"ionBean":"DivTag"}'
+          tagName: div
+          ↓Text1 [mobile.components.UIText-1607388774402]: 
+            i18n: false
+            textValue: 
+              - xmlizable: 
+                - ↑classname: com.twinsoft.convertigo.beans.mobile.components.MobileSmartSourceType
+                - MobileSmartSourceType: script:this.local.ResetDone
+↓Footer [mobile.components.UIDynamicElement-1491634242460]: 
+  beanData: '{"ionBean":"Footer"}'
+  comment: Page footer
+  tagName: ion-footer
+  ↓ToolBar [mobile.components.UIDynamicElement-1491634317538]: 
+    beanData: '{"ionBean":"ToolBar"}'
+    tagName: ion-toolbar
+    ↓ButtonSet [mobile.components.UIDynamicElement-1491634325595]: 
+      beanData: '{"ionBean":"ButtonSet","SetPosition":"plain:left"}'
+      tagName: ion-buttons
+      ↓Button [mobile.components.UIDynamicElement-1491634332730]: 
+        beanData: '{"ionBean":"Button"}'
+        tagName: button
+        ↓Text [mobile.components.UIText-1491634340354]: 
+          textValue: 
+            - xmlizable: 
+              - ↑classname: com.twinsoft.convertigo.beans.mobile.components.MobileSmartSourceType
+              - MobileSmartSourceType: plain:Action 1
+    ↓ButtonSet1 [mobile.components.UIDynamicElement-1491634373539]: 
+      beanData: '{"ionBean":"ButtonSet","SetPosition":"plain:right"}'
+      tagName: ion-buttons
+      ↓Button [mobile.components.UIDynamicElement-1491634376874]: 
+        beanData: '{"ionBean":"Button"}'
+        tagName: button
+        ↓Text [mobile.components.UIText-1491634383107]: 
+          textValue: 
+            - xmlizable: 
+              - ↑classname: com.twinsoft.convertigo.beans.mobile.components.MobileSmartSourceType
+              - MobileSmartSourceType: plain:Action 2
+↓PageEvent [mobile.components.UIPageEvent-1607512951676]: 
+  ↓SetGlobal [mobile.components.UIDynamicAction-1607512968540]: 
+    beanData: |
+      '{
+       "ionBean": "SetGlobalAction",
+       "Property": "plain:showSelect",
+       "Value": "script:true"
+      }'
+    isEnabled: false
+  ↓SetGlobal1 [mobile.components.UIDynamicAction-1607514080533]: 
+    beanData: |
+      '{
+       "ionBean": "SetGlobalAction",
+       "Property": "plain:selectVerbs",
+       "Value": "script:''destroy''"
+      }'

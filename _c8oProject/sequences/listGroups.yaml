@@ -1,0 +1,17 @@
+↓Call_Sequence [steps.SequenceStep-1607432845209]: 
+  sourceSequence: lib_FullSyncGrp.GroupsOf
+  ↓user [variables.StepVariable-1607432845211]: 
+↓Sort [steps.XMLSortStep-1607531792354]: 
+  sortXPATHDefinition: text()
+  sourceDefinition: 
+    - xmlizable: 
+      - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+      - com.twinsoft.convertigo.beans.common.XMLVector: 
+        - java.lang.String: 
+          - ↑value: 1607432845209
+        - java.lang.String: 
+          - ↑value: ./document/group
+↓user [variables.RequestableVariable-1607432853888]: 
+↓Test_Case [core.TestCase]: 
+  ↓user [variables.TestCaseVariable-1607531846950]: 
+    value: toto
