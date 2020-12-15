@@ -16,6 +16,7 @@
   ↓renameFiles [sequences.GenericSequence]: 🗏 sequences/renameFiles.yaml
   ↓storeDocs [sequences.GenericSequence]: 🗏 sequences/storeDocs.yaml
   ↓UserBulkGroups [sequences.GenericSequence]: 🗏 sequences/UserBulkGroups.yaml
+  ↓ZDev [sequences.GenericSequence]: 🗏 sequences/ZDev.yaml
   ↓MobileApplication [core.MobileApplication]: 
     comment: Describes the mobile application global properties
     splashRemoveMode: beforeUpdate

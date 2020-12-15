@@ -50,21 +50,26 @@ responseTimeout: 600
                 - ↑value: ./text()
     ↓Sequence_JS [steps.SimpleStep-1607334722700]: 
       expression: |
-        '
-        Array.prototype.fill = function(t){
-        	for(i=0;i<this.length;i++){
-        		this[i] = t;
-        	}
-        	return this;
+        'var rnd100 = ()=>{
+        	return (Math.floor(Math.random() * 100) + 1);
         }
         
-        var ln = maxGroup.length;
-        var ar = new Array(ln).fill(0).join('''');'
-      isEnabled: false
-    ↓jWhile [steps.WhileStep-1607334105091]: 
-      condition: maxGroup>0
+        var ar = [];
+        
+        for(var i=0; i< +maxGroup; i++){
+        	var grp = ''Group'' + (''000'' + rnd100()).substr(-3);
+        	if (ar.indexOf(grp) == -1){
+        		ar.push(grp);
+        	}else{
+        		i--;
+        	}
+        }
+        
+        log.warning("ar: " + ar);'
+    ↓jIterator [steps.SimpleIteratorStep-1608048980177]: 
+      expression: ar
       ↓xGroup [steps.ElementStep-1607334246421]: 
-        expression: '"Group" + (''00'' + maxGroup--).substr(-3)'
+        expression: item
         nodeName: xGroup
       ↓Call_Sequence [steps.SequenceStep-1607334211912]: 
         sourceSequence: lib_FullSyncGrp.SetUserInGroup

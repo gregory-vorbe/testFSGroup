@@ -19,6 +19,7 @@ databaseName: test_group_fs
     description: Attachment path  This path is either absolute or relative to Convertigo environment. Relative paths starting with:<br/><br/>• <span class="computer">./</span> are relative to Convertigo workspace,<br/>• <span class="computer">.//</span> are relative to current project folder. <br/><br/>
   ↓_use_attname [variables.RequestableVariable-1607597566959]: 
     description: Attachment name
+↓ResetDatabase [transactions.couchdb.ResetDatabaseTransaction]: 
 ↓Design_document [couchdb.DesignDocument]: 
   docdata: 
     →: |
@@ -30,11 +31,11 @@ databaseName: test_group_fs
           "DocByGrp": {
             "map": "function (doc) {\r\n
           try {\r\n
-              for (i in doc.c8oGrp) {\r\n
-                  if (doc.c8oGrp[i]) {\r\n
-                      emit(i, doc._id)\r\n
-                  }\r\n
-              }\r\n
+              \/\/for (i in doc.c8oGrp) {\r\n
+                \/\/  if (doc.c8oGrp[i]) {\r\n
+                      emit(doc.c8oGrp, doc._id)\r\n
+                  \/\/}\r\n
+             \/\/ }\r\n
           } catch (err) {\r\n
               log(err.message);\r\n
           }\r\n

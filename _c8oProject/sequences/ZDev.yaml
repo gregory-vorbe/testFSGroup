@@ -1,0 +1,20 @@
+↓Sequence_JS [steps.SimpleStep-1608047594831]: 
+  expression: |
+    'var rnd100 = ()=>{
+    	return (Math.floor(Math.random() * 100) + 1);
+    }
+    
+    var ar = [];
+    
+    for(var i=0; i< +maxGroup; i++){
+    	var grp = ''Group'' + (''000'' + rnd100()).substr(-3);
+    	if (ar.indexOf(grp) == -1){
+    		ar.push(grp);
+    	}else{
+    		i--;
+    	}
+    }
+    
+    log.warning("ar: " + ar);'
+↓maxGroup [variables.RequestableVariable-1608047582920]: 
+  value: 10
