@@ -142,7 +142,6 @@ responseTimeout: 14400
               - java.lang.String: 
                 - ↑value: ./document/countLines/text()
 ↓Call_Sequence1 [steps.SequenceStep-1607941966210]: 
-  isEnabled: false
   sourceSequence: test_group_fs.addAttachments
   ↓attnb [variables.StepVariable-1607941966212]: 
     description: Attachment name

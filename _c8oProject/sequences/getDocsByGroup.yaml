@@ -1,0 +1,54 @@
+↓Input_variables [steps.InputVariablesStep-1608113661177]: 
+↓initVars [steps.SimpleStep-1608113474574]: 
+  expression: |
+    //todo
+    total=0;
+↓Call_Transaction [steps.TransactionStep-1608113342746]: 
+  sourceTransaction: test_group_fs.test_group_fs.GetDocByGrp
+  ↓_use_keys [variables.StepMultiValuedVariable-1608113342750]: 
+    description: (string[]) – Return only documents where the key matches one of the keys specified in the array. Optional
+    sourceDefinition: 
+      - xmlizable: 
+        - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+        - com.twinsoft.convertigo.beans.common.XMLVector: 
+          - java.lang.String: 
+            - ↑value: 1608113661177
+          - java.lang.String: 
+            - ↑value: ./keys/text()
+↓Iterator [steps.IteratorStep-1608113409064]: 
+  sourceDefinition: 
+    - xmlizable: 
+      - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+      - com.twinsoft.convertigo.beans.common.XMLVector: 
+        - java.lang.String: 
+          - ↑value: 1608113342746
+        - java.lang.String: 
+          - ↑value: ./document/couchdb_output/rows/item
+  ↓jSimpleSource [steps.SimpleSourceStep-1608113436044]: 
+    sourceDefinition: 
+      - xmlizable: 
+        - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+        - com.twinsoft.convertigo.beans.common.XMLVector: 
+          - java.lang.String: 
+            - ↑value: 1608113409064
+          - java.lang.String: 
+            - ↑value: ./value/text()
+    variableName: jValue
+  ↓doSumValue [steps.SimpleStep-1608113518266]: 
+    expression: total += +jValue;
+↓xTotal [steps.ElementStep-1608113579774]: 
+  expression: '''''+total'
+  nodeName: xTotal
+↓keys [variables.RequestableMultiValuedVariable-1608113643176]: 
+  description: (string[]) – Return only documents where the key matches one of the keys specified in the array. Optional
+↓Test_Case [core.TestCase]: 
+  ↓keys [variables.TestCaseMultiValuedVariable-1608113769374]: 
+    description: (string[]) – Return only documents where the key matches one of the keys specified in the array. Optional
+    value: 
+      - xmlizable: 
+        - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+        - com.twinsoft.convertigo.beans.common.XMLVector: 
+          - java.lang.String: 
+            - ↑value: Group039
+          - java.lang.String: 
+            - ↑value: Group093

@@ -1,4 +1,21 @@
 databaseName: test_group_fs
+↓GetDocByGrp [transactions.couchdb.GetViewTransaction]: 
+  p_ddoc: Design_document
+  p_view: DocByGrp
+  q_group: true
+  ↓Test_Case [core.TestCase]: 
+    ↓_use_keys [variables.TestCaseMultiValuedVariable-1608113216231]: 
+      description: (string[]) – Return only documents where the key matches one of the keys specified in the array. Optional
+      value: 
+        - xmlizable: 
+          - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+          - com.twinsoft.convertigo.beans.common.XMLVector: 
+            - java.lang.String: 
+              - ↑value: Group039
+            - java.lang.String: 
+              - ↑value: Group093
+  ↓_use_keys [variables.RequestableMultiValuedVariable-1608113200722]: 
+    description: (string[]) – Return only documents where the key matches one of the keys specified in the array. Optional
 ↓GetNoDocAttachmentsView [transactions.couchdb.GetViewTransaction]: 
   p_ddoc: Design_document
   p_view: NoDocByAttachments

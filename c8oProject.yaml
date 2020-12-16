@@ -8,6 +8,7 @@
   ↓void [connectors.SqlConnector]: 🗏 connectors/void.yaml
   ↓addAttachments [sequences.GenericSequence]: 🗏 sequences/addAttachments.yaml
   ↓attachJPG2Doc [sequences.GenericSequence]: 🗏 sequences/attachJPG2Doc.yaml
+  ↓getDocsByGroup [sequences.GenericSequence]: 🗏 sequences/getDocsByGroup.yaml
   ↓listGroups [sequences.GenericSequence]: 🗏 sequences/listGroups.yaml
   ↓login [sequences.GenericSequence]: 🗏 sequences/login.yaml
   ↓logout [sequences.GenericSequence]: 🗏 sequences/logout.yaml
