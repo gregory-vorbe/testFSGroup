@@ -380,6 +380,82 @@ title: First page
               - xmlizable: 
                 - ↑classname: com.twinsoft.convertigo.beans.mobile.components.MobileSmartSourceType
                 - MobileSmartSourceType: script:this.local.EndStat
+        ↓Div1 [mobile.components.UIDynamicElement-1608224541625]: 
+          beanData: '{"ionBean":"DivTag"}'
+          tagName: div
+          ↓Text1 [mobile.components.UIText-1608224541631]: 
+            i18n: false
+            isEnabled: false
+            textValue: 
+              - xmlizable: 
+                - ↑classname: com.twinsoft.convertigo.beans.mobile.components.MobileSmartSourceType
+                - MobileSmartSourceType: source:{"filter":"Global","project":"test_group_fs","input":"router.sharedObject?.FullSyncSyncAction?.progress?.changed"}
+          ↓Text11 [mobile.components.UIText-1608225036706]: 
+            i18n: false
+            isEnabled: false
+            textValue: 
+              - xmlizable: 
+                - ↑classname: com.twinsoft.convertigo.beans.mobile.components.MobileSmartSourceType
+                - MobileSmartSourceType: source:{"filter":"Global","project":"test_group_fs","input":"router.sharedObject?.FullSyncSyncAction?.progress?.continuous"}
+          ↓Text111 [mobile.components.UIText-1608225050713]: 
+            i18n: false
+            isEnabled: false
+            textValue: 
+              - xmlizable: 
+                - ↑classname: com.twinsoft.convertigo.beans.mobile.components.MobileSmartSourceType
+                - MobileSmartSourceType: source:{"filter":"Global","project":"test_group_fs","input":"router.sharedObject?.FullSyncSyncAction?.progress?.finished"}
+          ↓Text1111 [mobile.components.UIText-1608225069169]: 
+            i18n: false
+            isEnabled: false
+            textValue: 
+              - xmlizable: 
+                - ↑classname: com.twinsoft.convertigo.beans.mobile.components.MobileSmartSourceType
+                - MobileSmartSourceType: source:{"filter":"Global","project":"test_group_fs","input":"router.sharedObject?.FullSyncSyncAction?.progress?.pull"}
+          ↓Text11111121 [mobile.components.UIText-1608227618006]: 
+            i18n: false
+            textValue: 
+              - xmlizable: 
+                - ↑classname: com.twinsoft.convertigo.beans.mobile.components.MobileSmartSourceType
+                - MobileSmartSourceType: plain:pulling:
+          ↓Text11111 [mobile.components.UIText-1608225087062]: 
+            i18n: false
+            textValue: 
+              - xmlizable: 
+                - ↑classname: com.twinsoft.convertigo.beans.mobile.components.MobileSmartSourceType
+                - MobileSmartSourceType: source:{"filter":"Global","project":"test_group_fs","input":"router.sharedObject?.FullSyncSyncAction?.progress?.current"}
+          ↓Text1111112 [mobile.components.UIText-1608226802201]: 
+            i18n: false
+            textValue: 
+              - xmlizable: 
+                - ↑classname: com.twinsoft.convertigo.beans.mobile.components.MobileSmartSourceType
+                - MobileSmartSourceType: plain:/
+          ↓Text111111 [mobile.components.UIText-1608225103297]: 
+            i18n: false
+            textValue: 
+              - xmlizable: 
+                - ↑classname: com.twinsoft.convertigo.beans.mobile.components.MobileSmartSourceType
+                - MobileSmartSourceType: source:{"filter":"Global","project":"test_group_fs","input":"router.sharedObject?.FullSyncSyncAction?.progress?.total"}
+          ↓Text1111111 [mobile.components.UIText-1608225122434]: 
+            i18n: false
+            isEnabled: false
+            textValue: 
+              - xmlizable: 
+                - ↑classname: com.twinsoft.convertigo.beans.mobile.components.MobileSmartSourceType
+                - MobileSmartSourceType: source:{"filter":"Global","project":"test_group_fs","input":"router.sharedObject?.FullSyncSyncAction?.progress?.status"}
+          ↓Text11111111 [mobile.components.UIText-1608225143442]: 
+            i18n: false
+            isEnabled: false
+            textValue: 
+              - xmlizable: 
+                - ↑classname: com.twinsoft.convertigo.beans.mobile.components.MobileSmartSourceType
+                - MobileSmartSourceType: source:{"filter":"Global","project":"test_group_fs","input":"router.sharedObject?.FullSyncSyncAction?.progress?.taskInfo"}
+          ↓Text111111111 [mobile.components.UIText-1608225153915]: 
+            i18n: false
+            isEnabled: false
+            textValue: 
+              - xmlizable: 
+                - ↑classname: com.twinsoft.convertigo.beans.mobile.components.MobileSmartSourceType
+                - MobileSmartSourceType: script:router.sharedObject?.FullSyncSyncAction?.progress?.raw
     ↓GridRow_Views [mobile.components.UIDynamicElement-1608024606332]: 
       beanData: '{"ionBean":"GridRow","AlignItemsEnd":"plain:align-items-end"}'
       tagName: ion-row
@@ -525,7 +601,7 @@ title: First page
               - xmlizable: 
                 - ↑classname: com.twinsoft.convertigo.beans.mobile.components.MobileSmartSourceType
                 - MobileSmartSourceType: 'script:this.global.viewDocsGrp && Array.isArray(this.global.viewDocsGrp.rows) ? this.global.viewDocsGrp.rows[0] && this.global.viewDocsGrp.rows[0].value ? this.global.viewDocsGrp.rows[0].value : ''0'' : ''*0*'''
-    ↓GridRow_Views1 [mobile.components.UIDynamicElement-1608126531267]: 
+    ↓GridRow_ServerDocs [mobile.components.UIDynamicElement-1608126531267]: 
       beanData: '{"ionBean":"GridRow","AlignItemsEnd":"plain:align-items-end"}'
       tagName: ion-row
       ↓GridCol2 [mobile.components.UIDynamicElement-1608126531270]: 
@@ -689,6 +765,9 @@ title: First page
                           		delete page.global.canGetView;
                           		delete page.global.viewDocsAttachments;
                           		delete page.global.viewDocsNoAttachments;
+                          		delete page.global.viewDocsGrp;
+                          		delete page.global.serverGroups;
+                          		delete page.global.FullSyncSyncAction;
                           		page.global.selectView = null;
                           		delete page.local.StartStat;
                           		delete page.local.EndStat;

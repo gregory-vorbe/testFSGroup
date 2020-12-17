@@ -50,19 +50,21 @@ responseTimeout: 600
                 - ↑value: ./text()
     ↓Sequence_JS [steps.SimpleStep-1607334722700]: 
       expression: |
-        'var rnd100 = ()=>{
+        '/*var rnd100 = ()=>{
         	return (Math.floor(Math.random() * 100) + 1);
-        }
+        }*/
         
         var ar = [];
         
         for(var i=0; i< +maxGroup; i++){
-        	var grp = ''Group'' + (''000'' + rnd100()).substr(-3);
+        	var grp = ''Group'' + (''000'' + (i+1)).substr(-3);
+        	ar.push(grp);
+        	/*var grp = ''Group'' + (''000'' + rnd100()).substr(-3);
         	if (ar.indexOf(grp) == -1){
         		ar.push(grp);
         	}else{
         		i--;
-        	}
+        	}*/
         }
         
         log.warning("ar: " + ar);'
