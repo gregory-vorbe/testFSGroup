@@ -63,6 +63,8 @@ componentScriptContent:
 tplProjectName: mobilebuilder_tpl_7_8_0
 ↓Menu [mobile.components.UIDynamicMenu-1500890597895]: 🗏 mobileMenus/Menu.yaml
 ↓Page [mobile.components.PageComponent-1500538678074]: 🗏 mobilePages/Page.yaml
+↓Page1 [mobile.components.PageComponent-1608563095947]: 🗏 mobilePages/Page1.yaml
+↓Page2 [mobile.components.PageComponent-1608568052906]: 🗏 mobilePages/Page2.yaml
 ↓Theme [mobile.components.UITheme-1491635018260]: 
   comment: Global color themes can be customized here
   styleContent: 

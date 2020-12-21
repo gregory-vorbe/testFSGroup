@@ -1,51 +1,51 @@
 responseTimeout: 14400
-↓Call_Transaction [steps.TransactionStep-1608044122657]: 
-  sourceTransaction: test_group_fs.test_group_fs.ResetDatabase
-↓Call_Sequence [steps.SequenceStep-1607330835203]: 
+↓Call_Transaction [steps.TransactionStep-1608563443393]: 
+  sourceTransaction: test_group_fs.test_group_fs_no_attachments.ResetDatabase
+↓Call_Sequence [steps.SequenceStep-1608563443396]: 
   sourceSequence: test_group_fs.login
-  ↓user [variables.StepVariable-1607330835205]: 
+  ↓user [variables.StepVariable-1608563443399]: 
     value: demo_huge_groups
-↓List_directory [steps.ListDirStep-1607093877143]: 
+↓List_directory [steps.ListDirStep-1608563443402]: 
   sourceDirectory: directory
-↓Count [steps.XMLCountStep-1607357547538]: 
+↓Count [steps.XMLCountStep-1608563443405]: 
   nodeName: fileCount
+  output: false
   sourceDefinition: 
     - xmlizable: 
       - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
       - com.twinsoft.convertigo.beans.common.XMLVector: 
         - java.lang.String: 
-          - ↑value: 1607093877143
+          - ↑value: 1608563443402
         - java.lang.String: 
           - ↑value: ./file[contains(., '.xml')]
-↓jSimpleSource [steps.SimpleSourceStep-1607357629585]: 
+↓jSimpleSource [steps.SimpleSourceStep-1608563443408]: 
   sourceDefinition: 
     - xmlizable: 
       - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
       - com.twinsoft.convertigo.beans.common.XMLVector: 
         - java.lang.String: 
-          - ↑value: 1607357547538
+          - ↑value: 1608563443405
         - java.lang.String: 
           - ↑value: ./text()
   variableName: jFileCount
-↓Iterator [steps.IteratorStep-1607094214949]: 
+↓Iterator [steps.IteratorStep-1608563443417]: 
   condition: StopIndex
-  isEnabled: false
   sourceDefinition: 
     - xmlizable: 
       - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
       - com.twinsoft.convertigo.beans.common.XMLVector: 
         - java.lang.String: 
-          - ↑value: 1607093877143
+          - ↑value: 1608563443402
         - java.lang.String: 
           - ↑value: ./file
   startIndex: StartIndex
-  ↓IfIsIn [steps.IsInStep-1607329971794]: 
+  ↓IfIsIn [steps.IsInStep-1608563443420]: 
     sourceDefinition: 
       - xmlizable: 
         - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
         - com.twinsoft.convertigo.beans.common.XMLVector: 
           - java.lang.String: 
-            - ↑value: 1607094214949
+            - ↑value: 1608563443417
           - java.lang.String: 
             - ↑value: ./text()
     testDefinition: 
@@ -59,7 +59,7 @@ responseTimeout: 14400
                 - ↑value: AND
               - java.lang.String: 
                 - ↑value: .*\.xml
-    ↓Sequence_JS [steps.SimpleStep-1607349271483]: 
+    ↓Sequence_JS [steps.SimpleStep-1608563443423]: 
       expression: |
         '/*var grp =  "Group" + (''000'' + block).substr(-3);
         if((index+1)%(modulo*1) == 0){
@@ -83,85 +83,64 @@ responseTimeout: 14400
         for (var i = 0; i < 1000; i++) {
         	oGrps.push({c8oGrp: ''Group'' + (''000'' + ((i % 100)+1)).substr(-3)});
         }'
-    ↓jElement [steps.ElementStep-1607347716575]: 
+    ↓jElement [steps.ElementStep-1608563443426]: 
       expression: ''''' + JSON.stringify(oGrps)'
       nodeName: index
       output: false
-    ↓Call_Sequence [steps.SequenceStep-1607094236068]: 
-      sourceSequence: test_group_fs.storeDocs
-      ↓filename [variables.StepVariable-1607094312190]: 
+    ↓Call_Sequence [steps.SequenceStep-1608563443429]: 
+      sourceSequence: test_group_fs.storeDocs_noAtt
+      ↓filename [variables.StepVariable-1608563443432]: 
         sourceDefinition: 
           - xmlizable: 
             - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
             - com.twinsoft.convertigo.beans.common.XMLVector: 
               - java.lang.String: 
-                - ↑value: 1607094214949
+                - ↑value: 1608563443417
               - java.lang.String: 
                 - ↑value: ./text()
-      ↓i [variables.StepVariable-1607347679211]: 
+      ↓i [variables.StepVariable-1608563443435]: 
         sourceDefinition: 
           - xmlizable: 
             - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
             - com.twinsoft.convertigo.beans.common.XMLVector: 
               - java.lang.String: 
-                - ↑value: 1607347716575
+                - ↑value: 1608563443426
               - java.lang.String: 
                 - ↑value: ./text()
-      ↓directory [variables.StepVariable-1607388199967]: 
-      ↓attnb [variables.StepVariable-1607612304953]: 
-        description: Attachment name
-        value: 5
-      ↓maxParallelThreads [variables.StepVariable-1607698436442]: 
-        value: 10
-    ↓jElement1 [steps.ElementStep-1607362519667]: 
+      ↓directory [variables.StepVariable-1608563443438]: 
+    ↓jElement1 [steps.ElementStep-1608563443447]: 
       expression: '''''// + JSON.stringify(oGrps)'
       nodeName: index
-      ↓Attribute [steps.XMLAttributeStep-1607362519674]: 
+      ↓Attribute [steps.XMLAttributeStep-1608563443450]: 
         nodeName: file
         sourceDefinition: 
           - xmlizable: 
             - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
             - com.twinsoft.convertigo.beans.common.XMLVector: 
               - java.lang.String: 
-                - ↑value: 1607094214949
+                - ↑value: 1608563443417
               - java.lang.String: 
                 - ↑value: ./text()
-      ↓Attribute1 [steps.XMLAttributeStep-1607362552090]: 
+      ↓Attribute1 [steps.XMLAttributeStep-1608563443453]: 
         nodeName: lines
         sourceDefinition: 
           - xmlizable: 
             - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
             - com.twinsoft.convertigo.beans.common.XMLVector: 
               - java.lang.String: 
-                - ↑value: 1607094236068
+                - ↑value: 1608563443429
               - java.lang.String: 
                 - ↑value: ./document/countLines/text()
-↓Call_Sequence1 [steps.SequenceStep-1607941966210]: 
-  isEnabled: false
-  sourceSequence: test_group_fs.addAttachments
-  ↓attnb [variables.StepVariable-1607941966212]: 
-    description: Attachment name
-    value: 1
-↓directory [variables.RequestableVariable-1607383802793]: 
+↓directory [variables.RequestableVariable-1608563443462]: 
   value: F:\\TMP\\off
-↓StartIndex [variables.RequestableVariable-1607387342927]: 
+↓StartIndex [variables.RequestableVariable-1608563443465]: 
   value: 0
-↓StopIndex [variables.RequestableVariable-1607387355425]: 
+↓StopIndex [variables.RequestableVariable-1608563443468]: 
   value: '-1'
-↓attnb [variables.RequestableVariable-1607612310981]: 
-  description: Attachment name
-  value: 1
-↓maxParallelThreads [variables.RequestableVariable-1607698449603]: 
-  value: 10
 ↓Test_Case_1 [core.TestCase]: 
-  ↓directory [variables.TestCaseVariable-1607387594572]: 
+  ↓directory [variables.TestCaseVariable-1608563443478]: 
     value: .//../test_group_data/off
-  ↓StartIndex [variables.TestCaseVariable-1607387594574]: 
+  ↓StartIndex [variables.TestCaseVariable-1608563443481]: 
     value: 0
-  ↓StopIndex [variables.TestCaseVariable-1607387594576]: 
-    value: 1
-  ↓attnb [variables.TestCaseVariable-1607612450408]: 
-    description: Attachment name
-    value: 1
-  ↓maxParallelThreads [variables.TestCaseVariable-1607699148396]: 
-    value: 10
+  ↓StopIndex [variables.TestCaseVariable-1608563443484]: 
+    value: 5

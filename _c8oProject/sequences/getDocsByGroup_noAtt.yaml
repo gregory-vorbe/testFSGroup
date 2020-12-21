@@ -1,0 +1,60 @@
+↓Input_variables [steps.InputVariablesStep-1608563938694]: 
+↓initVars [steps.SimpleStep-1608563938697]: 
+  expression: |
+    //todo
+    total=0;
+↓Call_Transaction [steps.TransactionStep-1608563938700]: 
+  sourceTransaction: test_group_fs.test_group_fs_no_attachments.GetDocByGrp
+  ↓_use_keys [variables.StepMultiValuedVariable-1608563938703]: 
+    description: (string[]) – Return only documents where the key matches one of the keys specified in the array. Optional
+    sourceDefinition: 
+      - xmlizable: 
+        - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+        - com.twinsoft.convertigo.beans.common.XMLVector: 
+          - java.lang.String: 
+            - ↑value: 1608563938694
+          - java.lang.String: 
+            - ↑value: ./keys/text()
+↓Iterator [steps.IteratorStep-1608563938706]: 
+  sourceDefinition: 
+    - xmlizable: 
+      - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+      - com.twinsoft.convertigo.beans.common.XMLVector: 
+        - java.lang.String: 
+          - ↑value: 1608563938700
+        - java.lang.String: 
+          - ↑value: ./document/couchdb_output/rows/item
+  ↓jSimpleSource [steps.SimpleSourceStep-1608563938709]: 
+    sourceDefinition: 
+      - xmlizable: 
+        - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+        - com.twinsoft.convertigo.beans.common.XMLVector: 
+          - java.lang.String: 
+            - ↑value: 1608563938706
+          - java.lang.String: 
+            - ↑value: ./value/text()
+    variableName: jValue
+  ↓doSumValue [steps.SimpleStep-1608563938712]: 
+    expression: total += +jValue;
+↓xTotal [steps.ElementStep-1608563938715]: 
+  expression: '''''+total'
+  nodeName: xTotal
+↓keys [variables.RequestableMultiValuedVariable-1608563938718]: 
+  description: (string[]) – Return only documents where the key matches one of the keys specified in the array. Optional
+↓Test_Case [core.TestCase]: 
+  ↓keys [variables.TestCaseMultiValuedVariable-1608563938722]: 
+    description: (string[]) – Return only documents where the key matches one of the keys specified in the array. Optional
+    value: 
+      - xmlizable: 
+        - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+        - com.twinsoft.convertigo.beans.common.XMLVector: 
+          - java.lang.String: 
+            - ↑value: Group001
+          - java.lang.String: 
+            - ↑value: Group002
+          - java.lang.String: 
+            - ↑value: Group003
+          - java.lang.String: 
+            - ↑value: Group004
+          - java.lang.String: 
+            - ↑value: Group005

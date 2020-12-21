@@ -1,0 +1,80 @@
+databaseName: test_group_fs_no_attachments
+↓GetDocByGrp [transactions.couchdb.GetViewTransaction]: 
+  p_ddoc: Design_document
+  p_view: DocByGrp
+  q_group: true
+  ↓Test_Case [core.TestCase]: 
+    ↓_use_keys [variables.TestCaseMultiValuedVariable-1608559757164]: 
+      description: (string[]) – Return only documents where the key matches one of the keys specified in the array. Optional
+      value: 
+        - xmlizable: 
+          - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+          - com.twinsoft.convertigo.beans.common.XMLVector: 
+            - java.lang.String: 
+              - ↑value: Group039
+            - java.lang.String: 
+              - ↑value: Group093
+  ↓_use_keys [variables.RequestableMultiValuedVariable-1608559757167]: 
+    description: (string[]) – Return only documents where the key matches one of the keys specified in the array. Optional
+↓GetNoDocAttachmentsView [transactions.couchdb.GetViewTransaction]: 
+  p_ddoc: Design_document
+  p_view: NoDocByAttachments
+  ↓_use_reduce [variables.RequestableVariable-1608562973807]: 
+    description: (boolean) – Use the reduction function. Default is true
+    value: true
+↓GetServerInfo [transactions.couchdb.GetServerInfoTransaction]: 
+  ↑default: true
+↓PostBulkDocuments [transactions.couchdb.PostBulkDocumentsTransaction]: 
+  ↓data [variables.RequestableMultiValuedVariable-1608559757176]: 
+    description: Documents contents
+  ↓_use_json_base [variables.RequestableVariable-1608559757179]: 
+    description: (string) – JSON use as a base for the array of documents (js array), or for individual documents (js object). Optional
+↓ResetDatabase [transactions.couchdb.ResetDatabaseTransaction]: 
+↓Design_document [couchdb.DesignDocument]: 
+  docdata: 
+    →: |
+      '{
+        "_id": "_design\/Design_document",
+        "filters": {},
+        "updates": {},
+        "views": {
+          "DocByGrp": {
+            "map": "function (doc) {\r\n
+          try {\r\n
+              \/\/for (i in doc.c8oGrp) {\r\n
+                \/\/  if (doc.c8oGrp[i]) {\r\n
+                      emit(doc.c8oGrp, doc._id)\r\n
+                  \/\/}\r\n
+             \/\/ }\r\n
+          } catch (err) {\r\n
+              log(err.message);\r\n
+          }\r\n
+      }",
+            "reduce": "_count"
+          },
+          "DocByAttachments": {
+            "map": "function (doc) {\r\n
+          try {\r\n
+              if (doc._attachments) {\r\n
+                  emit(doc._id, 1)\r\n
+              }\r\n
+          } catch (err) {\r\n
+              log(err.message);\r\n
+          }\r\n
+      }",
+            "reduce": "_count"
+          },
+          "NoDocByAttachments": {
+            "map": "function (doc) {\r\n
+          try {\r\n
+              if (!doc._attachments) {\r\n
+                  emit(doc._id, 1)\r\n
+              }\r\n
+          } catch (err) {\r\n
+              log(err.message);\r\n
+          }\r\n
+      }",
+            "reduce": "_count"
+          }
+        }
+      }'
