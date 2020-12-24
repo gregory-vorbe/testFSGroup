@@ -13,7 +13,6 @@ responseTimeout: 3600
         - java.lang.String: 
           - ↑value: ./dataset/record
 ↓Call_Transaction [steps.TransactionStep-1607330388553]: 
-  output: true
   sourceTransaction: test_group_fs.test_group_fs.PostBulkDocuments
   ↓data [variables.StepMultiValuedVariable-1607330388555]: 
     description: Documents contents
@@ -35,6 +34,22 @@ responseTimeout: 3600
             - ↑value: 1607347835431
           - java.lang.String: 
             - ↑value: ./i/text()
+↓jSource [steps.SourceStep-1608827624126]: 
+  sourceDefinition: 
+    - xmlizable: 
+      - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+      - com.twinsoft.convertigo.beans.common.XMLVector: 
+        - java.lang.String: 
+          - ↑value: 1607330388553
+        - java.lang.String: 
+          - ↑value: ./document/couchdb_output/items/item
+  variableName: jDocs
+↓logDocsId [steps.SimpleStep-1608827708943]: 
+  expression: |
+    'for(i=0; i < jDocs.length; i++){
+    	var id=jDocs.item(i).getElementsByTagName("id").item(0).getTextContent();
+    	log.warning("" + filename + ":" + id);
+    }'
 ↓Complex [steps.XMLComplexStep-1607696209069]: 
   nodeName: container
   output: false
@@ -49,7 +64,7 @@ responseTimeout: 3600
             - ↑value: ./document/couchdb_output/items/item
     ↓Parallel [steps.ParallelStep-1607688058444]: 
       maxNumberOfThreads: maxParallelThreads*1
-      ↓Call_Sequence [steps.SequenceStep-1607598033905]: 
+      ↓Call_Sequence_attachJPEG2Doc [steps.SequenceStep-1607598033905]: 
         contextName: '''CTX'' + (index*1 % maxParallelThreads*1)'
         sourceSequence: test_group_fs.attachJPG2Doc
         ↓docid [variables.StepVariable-1607598033907]: 

@@ -1,3 +1,4 @@
+anonymousReplication: allow
 databaseName: test_group_fs_no_attachments
 ↓GetDocByGrp [transactions.couchdb.GetViewTransaction]: 
   p_ddoc: Design_document

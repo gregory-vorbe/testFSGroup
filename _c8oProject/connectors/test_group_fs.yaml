@@ -1,3 +1,4 @@
+anonymousReplication: allow
 databaseName: test_group_fs
 ↓GetDocByGrp [transactions.couchdb.GetViewTransaction]: 
   p_ddoc: Design_document
@@ -30,6 +31,7 @@ databaseName: test_group_fs
   ↓_use_json_base [variables.RequestableVariable-1607593632204]: 
     description: (string) – JSON use as a base for the array of documents (js array), or for individual documents (js object). Optional
 ↓PutDocumentAttachment [transactions.couchdb.PutDocumentAttachmentTransaction]: 
+  p_attcontent_type: image/jpeg
   ↓_use_docid [variables.RequestableVariable-1607597566955]: 
     description: Document ID
   ↓_use_attpath [variables.RequestableVariable-1607597566957]: 

@@ -1,4 +1,4 @@
-↑convertigo: 7.8.1.m006
+↑convertigo: 7.9.0.m006
 ↓test_group_fs [core.Project]: 
   comment: Convertigo Mobile builder Project
   contextTimeout: 36000
@@ -22,6 +22,12 @@
   ↓storeDocs_noAtt [sequences.GenericSequence]: 🗏 sequences/storeDocs_noAtt.yaml
   ↓UserBulkGroups [sequences.GenericSequence]: 🗏 sequences/UserBulkGroups.yaml
   ↓ZDev [sequences.GenericSequence]: 🗏 sequences/ZDev.yaml
+  ↓CouchDb_schema [references.ImportXsdSchemaReference]: 
+    urlpath: http://localhost:18080/convertigo/xsd/couchdb/CouchDb.xsd
+  ↓lib_FullSyncGrp_reference [references.ProjectSchemaReference]: 
+    projectName: lib_FullSyncGrp=git@github.com:convertigo/c8oprj-lib-fullsync-grp.git:branch=7.7.0
+  ↓Project_reference1 [references.ProjectSchemaReference]: 
+    projectName: mobilebuilder_tpl_7_9_0=https://github.com/convertigo/c8oprj-mobilebuilder-tpl/archive/mobilebuilder_tpl_7_9_0.zip
   ↓MobileApplication [core.MobileApplication]: 
     comment: Describes the mobile application global properties
     splashRemoveMode: beforeUpdate
@@ -30,7 +36,3 @@
     ↓iOS [mobileplatforms.IOs]: 
       comment: iOS platform
     ↓Application [mobile.components.ApplicationComponent]: 🗏 mobileApplication.yaml
-  ↓CouchDb_schema [references.ImportXsdSchemaReference]: 
-    urlpath: http://localhost:18080/convertigo/xsd/couchdb/CouchDb.xsd
-  ↓lib_FullSyncGrp_reference [references.ProjectSchemaReference]: 
-    projectName: lib_FullSyncGrp=git@github.com:convertigo/c8oprj-lib-fullsync-grp.git:branch=7.7.0
